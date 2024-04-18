@@ -30,12 +30,13 @@ export default function BarChart() {
     useEffect(() => {
         setChartData({
             labels: ["Sun", "Mon", "Tues", "Weds", "Thurs", "Fri", "Sat"],
-            datasets: {
+            datasets:[ {
                     label: 'Sales $',
                     data: [10, 6, 15, 20, 12, 4, 5],
                     borderColor: 'rgb(53, 162, 235)',
-                    backgroundColor: 'rgba(53. 162. 235, 0.4)'
+                    backgroundColor: 'rgba(53, 162.,235, 0.4)'
                 }
+            ]
         })
 
         setChartOptions({

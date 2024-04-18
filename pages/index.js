@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-// import BarChart from "@/components/BarChart";
+import BarChart from "@/components/BarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
 import PieChart from "@/components/PieChart";
 
@@ -9,6 +9,7 @@ export default function Home() {
       <main className={`${styles.main}`}>
         <PieChart />
         <HorizontalBarChart />
+        <BarChart/>
       </main>
     </>
   );
