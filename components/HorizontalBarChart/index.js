@@ -1,17 +1,17 @@
-import { Bar } from "react-chartjs-2"
+import { Bar } from 'react-chartjs-2'
 
 import {
-    Chart as ChartJS,
+    Chart as ChartJs,
     CategoryScale,
+    LinearScale,
     BarElement,
     Title,
     Tooltip,
-    Legend,
-    LinearScale
-} from 'chart.js';
-import { useState, useEffect } from 'react';
+    Legend
+} from 'chart.js'
+import { useEffect, useState } from 'react'
 
-ChartJS.register(
+ChartJs.register(
     CategoryScale,
     LinearScale,
     BarElement,
@@ -20,62 +20,56 @@ ChartJS.register(
     Legend
 )
 
-export default function HorizontalBarChart() {
+export default function HorizontalChart() {
     const [chartData, setChartData] = useState({
         datasets: []
-    });
-
+    })
     const [chartOptions, setChartOptions] = useState({});
 
     useEffect(() => {
         setChartData({
-            labels: ["Sun", "Mon", "Tues", "Weds", "Thurs", "Fri", "Sat"],
+            labels: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
             datasets: [
                 {
-                    label: 'Data 1',
-                    data: [10, 6, 15, 20, 12, 4, 5],
-                    borderColor: 'rgb(53, 162, 235)',
-                    backgroundColor: 'rgba(23. 12. 235, 0.4)'
+                   label: 'Data 1',
+                   data: [154, 222, 195, 163, 286, 145, 310],
+                   borderColor: 'rgb(53, 162, 235)',
+                   backgroundColor: 'rgba(53, 162, 235, 0.4)' 
                 },
                 {
                     label: 'Data 2',
-                    data: [10, 6, 15, 20, 12, 4, 5],
+                    data: [134, 282, 195, 143, 286, 145, 310],
                     borderColor: 'rgb(53, 162, 235)',
-                    backgroundColor: 'rgba(53. 162. 235, 0.4)'
-                },
-                {
+                    backgroundColor: 'rgba(15, 162, 235, 0.4)' 
+                 },
+                 {
                     label: 'Data 3',
-                    data: [10, 6, 15, 20, 12, 4, 5],
+                    data: [152, 222, 195, 163, 256, 145, 300],
                     borderColor: 'rgb(53, 162, 235)',
-                    backgroundColor: 'rgba(153. 162. 150, 0.4)'
-                }
+                    backgroundColor: 'rgba(240, 162, 235, 0.4)' 
+                 }
             ]
         })
 
         setChartOptions({
+            indexAxis: 'y',
             plugins: {
-                indexAxis: "y",
                 legend: {
                     position: 'top'
                 },
                 title: {
                     display: true,
-                    text: 'Daily Revenue'
-                },
-                maintainAspectRatio: false,
-                responsive: true
-            }
-        })
-
-    });
-
-    
+                    text: "Daily Revenue"
+                }
+            },
+            maintainAspectRatio: true,
+            responsive: true
+        })    
+    }, [])
 
     return(
         <>
-            <div>
-                <Bar data={chartData} options={chartOptions} style={{width: "500px", height: "300px"}} />
-            </div>
+            <Bar data={chartData} options={chartOptions} style={{width: "500px", height: "300px"}}/>
         </>
     )
 }

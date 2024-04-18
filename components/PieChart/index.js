@@ -1,15 +1,15 @@
-import { Pie } from "react-chartjs-2"
+import { Pie } from 'react-chartjs-2'
 
 import {
-    Chart as ChartJS,
+    Chart as ChartJs,
     CategoryScale,
     ArcElement,
     Tooltip,
-    Legend,
-} from 'chart.js';
-import { useState, useEffect } from 'react';
+    Legend
+} from 'chart.js'
+import { useEffect, useState } from 'react'
 
-ChartJS.register(
+ChartJs.register(
     CategoryScale,
     ArcElement,
     Tooltip,
@@ -19,36 +19,35 @@ ChartJS.register(
 export default function PieChart() {
     const [chartData, setChartData] = useState({
         datasets: []
-    });
-
-    const [chartOptions, setChartOptions] = useState({
-        datasets: []
-    });
+    })
+    const [chartOptions, setChartOptions] = useState({});
 
     useEffect(() => {
         setChartData({
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            datasets: {
-                    label: '# Of Votes',
-                    data: [10, 6, 15, 20, 12, 4, 5],
-                    borderColor: [
-                        'rgb(53, 162, 235)',
-                        'rgb(23, 162, 65)',
-                        'rgb(53, 32, 235)',
-                        'rgb(53, 162, 5)',
-                        'rgb(123, 2, 35)',
-                        'rgb(32, 34, 24)'
-                    ],
-                    backgroundColor: [
-                        'rgb(53, 162, 235, 0.4)',
-                        'rgb(23, 162, 65, 0.4)',
-                        'rgb(53, 32, 235, 0.4)',
-                        'rgb(53, 162, 5, 0.4)',
-                        'rgb(123, 2, 35, 0.4)',
-                        'rgb(32, 34, 24, 0.4)'
-                    ],
-                    borderWidth: 1,
+            labels: ["Red","Blue","Yellow","Green","Purple","Orange"],
+            datasets: [
+                {
+                   label: '# of votes',
+                   data: [12, 19, 3, 5, 2, 3],
+                   borderColor: [
+                    'rgba(83, 142, 212, 1)',
+                    'rgba(53, 162, 235,1)',
+                    'rgba(153, 12, 45, 1',
+                    'rgba(33, 12, 115, 1)',
+                    'rgba(169, 225, 15, 1)',
+                    'rgba(98, 1, 45, 1)'
+                ],
+                   backgroundColor: [
+                    'rgba(83, 142, 212, 0.4)',
+                    'rgba(53, 162, 235, 0.4)',
+                    'rgba(153, 12, 45, 0.4)',
+                    'rgba(33, 12, 115, 0.4)',
+                    'rgba(169, 225, 15, 0.4)',
+                    'rgba(98, 1, 45, 0.4)'
+                ],
+                borderWidth: 1
                 }
+            ]
         })
 
         setChartOptions({
@@ -58,22 +57,17 @@ export default function PieChart() {
                 },
                 title: {
                     display: true,
-                    text: 'Daily Revenue'
-                },
-                maintainAspectRatio: false,
-                responsive: true
-            }
-        })
-
-    });
-
-    
+                    text: "Daily Revenue"
+                }
+            },
+            maintainAspectRatio: false,
+            responsive: true
+        })    
+    }, [])
 
     return(
         <>
-            <div>
-                <Pie data={chartData} options={chartOptions} style={{width: "500px", height: "300px"}} />
-            </div>
+            <Pie data={chartData} options={chartOptions} style={{width: "500px", height: "300px"}}/>
         </>
     )
 }
