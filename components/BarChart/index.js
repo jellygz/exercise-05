@@ -1,4 +1,3 @@
-import styles from './BarChart.module.css'
 import { Bar } from "react-chartjs-2"
 
 import {
@@ -26,9 +25,7 @@ export default function BarChart() {
         datasets: []
     });
 
-    const [chartOptions, setChartOptions] = useState({
-        datasets: []
-    });
+    const [chartOptions, setChartOptions] = useState({});
 
     useEffect(() => {
         setChartData({

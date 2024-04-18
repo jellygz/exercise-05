@@ -1,7 +1,7 @@
 import { Pie } from 'react-chartjs-2'
 
 import {
-    Chart as ChartJs,
+    Chart as ChartJS,
     CategoryScale,
     ArcElement,
     Tooltip,
@@ -9,7 +9,7 @@ import {
 } from 'chart.js'
 import { useEffect, useState } from 'react'
 
-ChartJs.register(
+ChartJS.register(
     CategoryScale,
     ArcElement,
     Tooltip,

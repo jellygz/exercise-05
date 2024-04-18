@@ -1,7 +1,7 @@
 import { Bar } from 'react-chartjs-2'
 
 import {
-    Chart as ChartJs,
+    Chart as ChartJS,
     CategoryScale,
     LinearScale,
     BarElement,
@@ -11,7 +11,7 @@ import {
 } from 'chart.js'
 import { useEffect, useState } from 'react'
 
-ChartJs.register(
+ChartJS.register(
     CategoryScale,
     LinearScale,
     BarElement,
